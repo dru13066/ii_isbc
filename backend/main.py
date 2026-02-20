@@ -6,7 +6,6 @@ from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 
 from pptx import Presentation
-from .pptx_engine import generate_presentation
 
 load_dotenv()
 
@@ -21,7 +20,6 @@ app.add_middleware(
 
 UPLOAD_DIR = "backend/uploads"
 
-# Хранилище статусов задач (MVP)
 jobs = {}
 
 
@@ -79,11 +77,10 @@ def run_generation(job_id, template_path, content_data, output_path):
             p.text = bullet
             p.level = 0
 
-        jobs[job_id]["progress"] = int(((index + 1) / total_slides) * 90)
+        jobs[job_id]["progress"] = int(((index + 1) / total_slides) * 100)
 
     prs.save(output_path)
 
-    jobs[job_id]["progress"] = 100
     jobs[job_id]["status"] = "done"
     jobs[job_id]["file"] = output_path
 
