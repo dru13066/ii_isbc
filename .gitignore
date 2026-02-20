@@ -1,0 +1,11 @@
+# Python
+__pycache__/
+.env
+*.pyc
+
+# Uploads
+backend/uploads/*.pptx
+backend/uploads/*.json
+
+# OS
+.DS_Store
