@@ -1,16 +1,46 @@
 body {
-    font-family: Arial, sans-serif;
-    max-width: 600px;
-    margin: 40px auto;
-  }
-  
-  label {
-    display: block;
-    margin-top: 20px;
-  }
-  
-  button {
-    margin-top: 30px;
-    padding: 10px 20px;
-    cursor: pointer;
-  }
+  font-family: Arial, sans-serif;
+  max-width: 600px;
+  margin: 40px auto;
+}
+
+label {
+  display: block;
+  margin-top: 20px;
+}
+
+button {
+  margin-top: 30px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 20px;
+  background: #e0e0e0;
+  margin-top: 30px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+#progress {
+  height: 100%;
+  width: 0%;
+  background: #4caf50;
+  transition: width 0.4s ease;
+}
+
+#download {
+  margin-top: 20px;
+  opacity: 0.4;
+}
+
+#download.active {
+  opacity: 1;
+  cursor: pointer;
+}
