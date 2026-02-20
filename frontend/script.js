@@ -21,7 +21,7 @@ form.addEventListener("submit", (e) => {
   const xhr = new XMLHttpRequest();
   xhr.open("POST", "http://localhost:8000/generate");
 
-  // 📤 ПРОГРЕСС ЗАГРУЗКИ (0–30%)
+  // Прогресс загрузки файлов (0–30%)
   xhr.upload.onprogress = (event) => {
     if (event.lengthComputable) {
       const percent = Math.round((event.loaded / event.total) * 30);
@@ -38,13 +38,13 @@ form.addEventListener("submit", (e) => {
   xhr.send(formData);
 });
 
-// ⚙️ ПРОГРЕСС КОНВЕРТАЦИИ (30–100%)
+// Прогресс конвертации (30–100%)
 async function pollStatus() {
   const res = await fetch(`http://localhost:8000/status/${jobId}`);
   const data = await res.json();
 
-  const adjustedProgress = 30 + Math.round(data.progress * 0.7);
-  progress.style.width = `${adjustedProgress}%`;
+  const adjusted = 30 + Math.round(data.progress * 0.7);
+  progress.style.width = `${adjusted}%`;
 
   if (data.status === "done") {
     progress.style.width = "100%";
